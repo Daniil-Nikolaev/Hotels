@@ -29,7 +29,7 @@ public abstract class BaseSearchStrategy implements SearchStrategy {
 }
 
 
-@Component("name")
+@Component("searchName")
 class SearchByNameStrategy extends BaseSearchStrategy {
     @Override
     public List<HotelResponseDto> search(String paramValue) {
@@ -39,7 +39,7 @@ class SearchByNameStrategy extends BaseSearchStrategy {
 }
 
 
-@Component("brand")
+@Component("searchBrand")
 class SearchByBrandStrategy extends BaseSearchStrategy {
     @Override
     public List<HotelResponseDto> search(String paramValue) {
@@ -48,7 +48,7 @@ class SearchByBrandStrategy extends BaseSearchStrategy {
     }
 }
 
-@Component("city")
+@Component("searchCity")
 class SearchByCityStrategy extends BaseSearchStrategy {
     @Override
     public List<HotelResponseDto> search(String paramValue) {
@@ -57,7 +57,7 @@ class SearchByCityStrategy extends BaseSearchStrategy {
     }
 }
 
-@Component("country")
+@Component("searchCountry")
 class SearchByCountryStrategy extends BaseSearchStrategy {
     @Override
     public List<HotelResponseDto> search(String paramValue) {
@@ -66,7 +66,7 @@ class SearchByCountryStrategy extends BaseSearchStrategy {
     }
 }
 
-@Component("amenities")
+@Component("searchAmenities")
 class SearchByAmenityStrategy extends BaseSearchStrategy {
     @Override
     public List<HotelResponseDto> search(String paramValue) {
