@@ -1,4 +1,4 @@
-package by.gpsolutions.hotels.service.strategy;
+package by.gpsolutions.hotels.service.searchStrategy;
 
 import by.gpsolutions.hotels.dto.HotelResponseDto;
 

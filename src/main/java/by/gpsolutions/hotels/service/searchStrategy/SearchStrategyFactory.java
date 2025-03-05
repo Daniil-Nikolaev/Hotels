@@ -1,4 +1,4 @@
-package by.gpsolutions.hotels.service.strategy;
+package by.gpsolutions.hotels.service.searchStrategy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

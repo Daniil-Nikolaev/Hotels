@@ -1,8 +1,8 @@
 package by.gpsolutions.hotels.service;
 
 import by.gpsolutions.hotels.dto.HotelResponseDto;
-import by.gpsolutions.hotels.service.strategy.SearchStrategy;
-import by.gpsolutions.hotels.service.strategy.SearchStrategyFactory;
+import by.gpsolutions.hotels.service.searchStrategy.SearchStrategy;
+import by.gpsolutions.hotels.service.searchStrategy.SearchStrategyFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
