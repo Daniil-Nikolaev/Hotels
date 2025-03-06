@@ -3,6 +3,9 @@ package by.gpsolutions.hotels.controller;
 import by.gpsolutions.hotels.dto.HotelResponseDto;
 import by.gpsolutions.hotels.service.SearchService;
 import by.gpsolutions.hotels.utils.SearchUtils;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/property-view")
+@Tag(name="Search")
 public class SearchController {
     private final SearchService searchService;
     private final SearchUtils searchUtils;
@@ -21,7 +25,12 @@ public class SearchController {
         this.searchService = searchService;
         this.searchUtils = searchUtils;
     }
+    @ApiResponse(responseCode = "400",description = "invalid request")
+    @ApiResponse(responseCode = "404",description = "No result")
+    @ApiResponse(responseCode = "200",description = "ok")
 
+
+    @Operation(summary = "Search Hotel by param")
     @GetMapping("/search")
     public ResponseEntity<List<HotelResponseDto>> searchHotels(
             @RequestParam(required = false) String name,

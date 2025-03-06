@@ -1,6 +1,9 @@
 package by.gpsolutions.hotels.controller;
 
 import by.gpsolutions.hotels.service.HistogramService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/property-view")
+@Tag(name="Histogram")
 public class HistogramController {
     private final HistogramService histogramService;
 
@@ -18,6 +22,9 @@ public class HistogramController {
         this.histogramService = histogramService;
     }
 
+    @ApiResponse(responseCode = "200",description = "ok")
+    @ApiResponse(responseCode = "400",description = "invalid request")
+    @Operation(summary = "Get Histogram by param")
     @GetMapping("/histogram/{param}")
     public ResponseEntity<Map<String,Integer>> getHistogram(@PathVariable String param) {
         Map<String,Integer> histogram;

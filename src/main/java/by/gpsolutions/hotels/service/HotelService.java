@@ -5,6 +5,7 @@ import by.gpsolutions.hotels.dto.HotelResponseDto;
 import by.gpsolutions.hotels.entity.Hotel;
 import by.gpsolutions.hotels.repository.HotelRepository;
 import by.gpsolutions.hotels.utils.HotelUtils;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -51,13 +52,14 @@ public class HotelService {
 
     }
 
-    public void addAmenities(int id,List<String> amenities){
+    public ResponseEntity<?> addAmenities(int id, List<String> amenities){
         Optional<Hotel> hotel = hotelRepository.findById(id);
         if(hotel.isPresent()){
             hotel.get().getAmenities().addAll(amenities);
             hotelRepository.save(hotel.get());
         }else{
-            throw new IllegalArgumentException("Hotel with ID " + id + " not found");
+            return ResponseEntity.notFound().build();
         }
+        return ResponseEntity.ok().build();
     }
 }
